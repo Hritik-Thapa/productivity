@@ -1,0 +1,23 @@
+{"modeslist":[{
+    "id":1,
+    "name":"pomodoro",
+    "session":25,
+    "rest":5
+  },
+  {
+    "id":2,
+    "name":"stopwatch",
+    "session":null,
+    "rest":null
+  },
+  {
+    "id":3,
+    "name":"timer",
+    "session":25,
+    "rest":null
+  },{
+    "id":4,
+    "name":"clock",
+    "session":null,
+    "rest":null
+  }]}
