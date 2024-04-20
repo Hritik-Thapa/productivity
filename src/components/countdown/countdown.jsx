@@ -1,16 +1,16 @@
-import React, {  useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './countdown.css'
 
-const Countdown = ({time,statusChange}) => {
-    const [start,setStart]=useState(false)
-    const [sec, setSec] = useState(time*60)
+const Countdown = ({ time, statusChange }) => {
+    const [start, setStart] = useState(false)
+    const [sec, setSec] = useState(time * 60)
     // const [min, setMin] = useState()
-    const displayRef=useRef(null);
-
-    let  timeDisplay=(time)=>{
-        let minutes=Math.floor(time/60).toString().padStart(2,0);
-        let seconds=(time%60).toString().padStart(2,0);
-        if (time===0){
+    const displayRef = useRef(null);
+    console.log('time ', time)
+    let timeDisplay = (time) => {
+        let minutes = Math.floor(time / 60).toString().padStart(2, 0);
+        let seconds = (time % 60).toString().padStart(2, 0);
+        if (time === 0) {
             console.log('hi')
             statusChange();
             handleReset(true)
@@ -22,12 +22,12 @@ const Countdown = ({time,statusChange}) => {
         console.log(sec);
 
         displayRef.current = setInterval(() => {
-                setSec((sec)=>sec - 1);
-                console.log(sec)
+            setSec((sec) => sec - 1);
+            console.log(sec)
         }, 1000)
     }
 
-    
+
     function handlePause() {
         setStart(false);
         console.log('pause');
@@ -35,15 +35,20 @@ const Countdown = ({time,statusChange}) => {
     }
 
     function handleReset(reset) {
-        if (!reset){
-        setStart(false);
-        setSec(time*60);
-        clearInterval(displayRef.current);}
-        else{
-            setSec(time*60);
+        if (!reset) {
+            setStart(false);
+            setSec(time * 60);
+            clearInterval(displayRef.current);
+        }
+        else {
+            setSec(time * 60);
         }
     }
-  return (
+
+    useEffect(() => {
+        return () => clearInterval(displayRef.current)
+    }, [])
+return (
     <div className='timer-body'>
         <span className='timer-display'>{timeDisplay(sec)}</span>
         <div className='timer-buttons'>
@@ -51,7 +56,7 @@ const Countdown = ({time,statusChange}) => {
             <button className='reset' onClick={handleReset}>Reset</button>
         </div>
     </div>
-  )
+)
 }
 
 export default Countdown;

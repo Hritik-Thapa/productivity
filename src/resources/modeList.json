@@ -1,22 +1,22 @@
 {"modeslist":[{
-    "id":1,
+    "id":0,
     "name":"pomodoro",
     "session":25,
     "rest":5
   },
   {
-    "id":2,
+    "id":1,
     "name":"stopwatch",
     "session":null,
     "rest":null
   },
   {
-    "id":3,
+    "id":2,
     "name":"timer",
     "session":25,
     "rest":null
   },{
-    "id":4,
+    "id":3,
     "name":"clock",
     "session":null,
     "rest":null

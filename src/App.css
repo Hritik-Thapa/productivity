@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 header{
     display: flex;
     justify-content: center;
@@ -5,4 +9,20 @@ header{
 
 header h1{
     font-family: 'Courier New', Courier, monospace;
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.timer{
+    display: flex;
+    align-items: center;
+}
+
+.modes{
+    width: 100%;
+    margin: 10px;
 }

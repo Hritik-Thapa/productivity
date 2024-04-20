@@ -20,12 +20,12 @@ const Timer = ({ session, rest }) => {
     }
     
     return (
-        <div>
+        <>
             <div className='container'>
                 {rest?work?<h1>Work</h1>:<h1>Break</h1>:<h1>Timer</h1>}
                 <Countdown time={work?session : rest} statusChange={workCallback}/>
             </div>
-        </div>
+        </>
     )
 }
 
