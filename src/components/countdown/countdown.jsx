@@ -7,10 +7,10 @@ const Countdown = ({ time, statusChange }) => {
     // const [min, setMin] = useState()
     const displayRef = useRef(null);
     console.log('time ', time)
-    let timeDisplay = (time) => {
-        let minutes = Math.floor(time / 60).toString().padStart(2, 0);
-        let seconds = (time % 60).toString().padStart(2, 0);
-        if (time === 0) {
+    let timeDisplay = (remainingTime) => {
+        let minutes = Math.floor(remainingTime / 60).toString().padStart(2, 0);
+        let seconds = (remainingTime % 60).toString().padStart(2, 0);
+        if (remainingTime === 0) {
             console.log('hi')
             statusChange();
             handleReset(true)
@@ -44,6 +44,10 @@ const Countdown = ({ time, statusChange }) => {
             setSec(time * 60);
         }
     }
+
+    useEffect(()=>{
+        setSec(time*60)
+    },[time]);
 
     useEffect(() => {
         return () => clearInterval(displayRef.current)
