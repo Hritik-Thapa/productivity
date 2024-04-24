@@ -14,15 +14,12 @@ const Timer = ({ session, rest }) => {
         if(rest){
             setWork(!work)
         }
-        else{
-            return
-        }
     }
     
     return (
         <>
-            <div className='container'>
-                {rest?work?<h1>Work</h1>:<h1>Break</h1>:<h1>Timer</h1>}
+            <div className='container drop-shadow'>
+            <p className='drop-shadow'>{rest?work?'Work':'Break':'Timer'}</p>
                 <Countdown time={work?session : rest} statusChange={workCallback}/>
             </div>
         </>

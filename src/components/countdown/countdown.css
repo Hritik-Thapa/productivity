@@ -6,28 +6,31 @@
 
 .timer-buttons{
     margin: 10px;
+    display: flex;
 }
 
 .timer-buttons  button {
-    width: 100px;
-    height: 40px;
+    width: 156px;
+    height: 59px;
     margin: 0 10px; 
-    border-radius: 5px;
+    border-radius: 15px;
     outline: none;
     border: none;
-    background-color:  #0722bc8a;
-    color: white;
+    background-color:  white;
+    color: #8BD4FF;
     cursor: pointer;
     transition: all 300ms ;
+    font-size: 32px;
 }
 
 .timer-buttons  button:hover{
-    background-color:#000000;
+    background-color:#6da9cc;
+    color: white;
     /* border:solid #255697 3px; */
 }
 
 .timer-display{
-    font-size: 70px;
+    font-size: 128px;
     font-weight: 700;
     margin:10px 20px;
     color: white;

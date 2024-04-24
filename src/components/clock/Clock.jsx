@@ -7,8 +7,7 @@ const Clock = () => {
 
 
   useEffect(() => {
-
-    const interval = setInterval(() => {
+    setInterval(() => {
       let time = new Date();
       setHours(time.getHours());
       setMinutes(time.getMinutes());
@@ -18,9 +17,15 @@ const Clock = () => {
   }, [])
 
   if(!hours) return'Loading...'
+
+  function handleFullScreen(){
+
+  }
+
   return (
     <div>
       {`${hours}:${minutes}:${seconds}`}
+      <button onClick={handleFullScreen}>FullScreen</button>
     </div>
   )
 }

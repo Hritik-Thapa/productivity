@@ -6,24 +6,24 @@ const Countdown = ({ time, statusChange }) => {
     const [sec, setSec] = useState(time * 60)
     // const [min, setMin] = useState()
     const displayRef = useRef(null);
-    console.log('time ', time)
+    // console.log('time ', time)
     let timeDisplay = (remainingTime) => {
         let minutes = Math.floor(remainingTime / 60).toString().padStart(2, 0);
         let seconds = (remainingTime % 60).toString().padStart(2, 0);
         if (remainingTime === 0) {
             console.log('hi')
             statusChange();
-            handleReset(true)
+            handleReset(false)
         }
         return `${minutes}:${seconds}`
     }
     function handleStart() {
         setStart(true);
-        console.log(sec);
+        // console.log(sec);
 
         displayRef.current = setInterval(() => {
             setSec((sec) => sec - 1);
-            console.log(sec)
+            // console.log(sec)
         }, 1000)
     }
 
@@ -35,7 +35,9 @@ const Countdown = ({ time, statusChange }) => {
     }
 
     function handleReset(reset) {
-        if (!reset) {
+        // console.log(`reset${reset}`)
+
+        if (reset) {
             setStart(false);
             setSec(time * 60);
             clearInterval(displayRef.current);
@@ -54,10 +56,10 @@ const Countdown = ({ time, statusChange }) => {
     }, [])
 return (
     <div className='timer-body'>
-        <span className='timer-display'>{timeDisplay(sec)}</span>
+        <span className='timer-display drop-shadow'>{timeDisplay(sec)}</span>
         <div className='timer-buttons'>
-            {!start ? <button className='start' onClick={handleStart}>Start</button> : <button className='pause' onClick={handlePause}>Pause</button>}
-            <button className='reset' onClick={handleReset}>Reset</button>
+            {!start ? <button className='start drop-shadow' onClick={handleStart}>Start</button> : <button className='pause' onClick={handlePause}>Pause</button>}
+            <button className='reset drop-shadow' onClick={()=>handleReset(true)}>Reset</button>
         </div>
     </div>
 )

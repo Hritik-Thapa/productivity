@@ -3,27 +3,16 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background: #8BD4FF;
     padding: 10px 40px;
-    max-width: 400px;
-    border-radius: 20px;
+    width: 767px;
+    height: 405px;
+    border-radius: 65px;
     color: white;
-    animation: gradient infinite;
 }
 
-@keyframes gradient {
-    0%{
-        background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-    }
-    50%{
-        background: linear-gradient(180deg, rgba(2,0,36,1) 100%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 35%);
-    }
-    100%{
-        background: linear-gradient(0deg, rgba(2,0,36,1) 35%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 0%);
-        
-    }
-}
 
-.container h1{
+.container p{
     margin: 0;
+    font-size: 40px;
 }

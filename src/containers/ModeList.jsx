@@ -23,22 +23,27 @@ const ModeList = ({modeChange,dispatch}) => {
     function customMode(mode){
         return(
             <>
-            <button onClick={()=>modeChange(mode.id)}>
-                {mode.name}
+            <button className='custom-button' onClick={()=>modeChange(mode.id)}>
+                <p className='custom-button_title'>{mode.name}</p>
+                <p className='custom-button_sub-title'>{mode.session} / {mode.rest}</p>
+                <button onClick={()=>handleDelete(mode)}>x</button>
             </button>
-            <button onClick={()=>handleDelete(mode)}>x</button>
+            
             </>
         )
     }
   return (
-    <>
+    <>  
+        <div className='top-row'>
+            <p className='drop-shadow modes-title'>Modes</p>
+            <button className=''>L</button>
+        </div>
         {modeList.map((mode)=>{
             return(
                 mode.custom?customMode(mode):<button onClick={()=>modeChange(mode.id)}>{mode.name}</button>
-                // <button onClick={()=>modeChange(mode.id)}>{mode.custom?`custom ${mode.name}`:`${mode.name}`}</button>
             )    
         })}
-        <button onClick={handleAdd}>+</button>
+        <button onClick={handleAdd} className='plus-button'>+</button>
         {addingMode&&(<AddMode dispatch={dispatch} addingMode={handleAdd}/>)}
     </>
   )
