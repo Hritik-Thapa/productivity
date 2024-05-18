@@ -12,12 +12,13 @@ function App() {
   function modeListReducer(state, action) {
     switch (action.type) {
       case "ADD":
-        if(!action.payload.session && !action.payload.rest){
-          // throw new Error('Must add some value to the session or rest')
+        if (!action.payload.session && !action.payload.rest) {
           handleModeChange(0);
-        }
-        else
-        return [...state, { ...action.payload, id: state.length,custom:true }];
+        } else
+          return [
+            ...state,
+            { ...action.payload, id: state.length, custom: true },
+          ];
       case "REMOVE":
         handleModeChange(0);
         return state.filter((item) => item.id !== action.payload);
@@ -28,7 +29,6 @@ function App() {
 
   console.log(modeList);
 
-
   function handleModeChange(mode) {
     console.log(`mode ${mode}`);
     setCurrentMode(mode);
@@ -37,16 +37,15 @@ function App() {
   return (
     <modeContext.Provider value={modeList}>
       <div className="App">
-      <h1>Productivity</h1>
+        <h1>Productivity</h1>
         <div className="page">
           <div className="timer">
             <ModeUI modeId={currentMode} />
           </div>
-        <div className="modes">
-          <ModeList modeChange={handleModeChange} dispatch={dispatch} />
+          <div className="modes">
+            <ModeList modeChange={handleModeChange} dispatch={dispatch} />
+          </div>
         </div>
-        </div>
-
       </div>
     </modeContext.Provider>
   );
